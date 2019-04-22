@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简易计算器</title>
+    <script src="lib/vue-2.4.0.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="n1"@change="dong">
+
+    <select v-model="opt" @change="dong">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+
+    <input type="text" v-model="n2" @change="dong">
+    <input type="button" value="=" @click="dong">
+    <input type="text" v-model="result">
+</div>
+
+<script>
+    var vue = new Vue({
+        el: '#app',
+        data: {
+            n1: 0,
+            n2: 0,
+            result: 0,
+            opt: '+'
+        },
+        methods: {
+            dong() {
+                var codeStr = `parseInt(this.n1)`+ this.opt +`parseInt(this.n2)`;
+                this.result = eval(codeStr);
+                // switch (this.opt) {
+                //     case '+': {
+                //         this.result = parseInt(this.n1)+parseInt(this.n2);
+                //     }
+                //         break;
+                //     case '-': {
+                //         this.result = parseInt(this.n1)+parseInt(this.n2)
+                //     }
+                //         break;
+                //     case '*': {
+                //         this.result = parseInt(this.n1)+parseInt(this.n2)
+                //     }
+                //         break;
+                //     case '/': {
+                //         this.result = parseInt(this.n1)+parseInt(this.n2)
+                //     }
+                //         break;
+                // }
+
+            },
+        }
+    })
+</script>
+</body>
+</html>

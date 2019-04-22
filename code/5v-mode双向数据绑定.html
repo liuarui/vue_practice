@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/vue-2.4.0.js"></script>
+</head>
+<body>
+<div id="app">
+    <h4>{{msg}}</h4>
+
+    <input type="text" style="width: 100px" v-model="msg">
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',  //el表示Vue实例控制页面区域
+        data: { //data属性存放的是el中用到的数据
+            msg: '大家好，我是爱学习爱劳动的小老弟！'
+        },
+        methods: {}
+    })
+
+</script>
+</body>
+</html>

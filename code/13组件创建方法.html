@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/vue-2.4.0.js"></script>
+    <style>
+        .ball {
+            width: 15px;
+            height: 15px;
+            background-color: red;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="加入购物车" @click="flag=!flag">
+        <transition
+        @before-enter="beforeEnter"
+        @enter="enter"
+        @after-enter="afterEnter">
+            <div class="ball" v-show="flag"></div>
+
+        </transition>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app', //el表示Vue实例控制页面区域
+            //data为mvvm中的M，用于保存页面中的数据
+            data: { //data属性存放的是el中用到的数据
+                flag: false
+            },
+            methods: {
+                beforeEnter(el){
+                    el.style.transform = 'translate(0,0)'
+                },
+                enter(el,done){
+                    el.offsetWidth
+                    el.style.transform = 'translate(150px,450px)'
+                    el.style.transition = 'all 5s ease' 
+                    done()
+                },
+                afterEnter(el){
+                    this.flag = !this.flag;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/vue-2.4.0.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>{{ msg }}</p>
+</div>
+<script>
+    //创建vue的示例
+    //导入包后，浏览器内存中，多了一个vue的构造函数
+    var vm = new Vue({
+        el: '#app',  //el表示Vue实例控制页面区域
+        //data为mvvm中的M，用于保存页面中的数据
+        data: { //data属性存放的是el中用到的数据
+            msg: '我的vue'
+        }
+    })
+
+</script>
+</body>
+</html>
